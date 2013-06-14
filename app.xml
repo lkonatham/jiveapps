@@ -13,6 +13,7 @@
     <Require feature="opensocial-1.0" />
     <Require feature="osapi"/>
     <Require feature="settitle"/>
+    <Require feature="minimessage"/>
     <Require feature="views" />
 
     <!-- Icons: 3 sizes, 16x16, 48x48, 128x128 -->
@@ -55,6 +56,7 @@
 
   <!-- User Preferences: http://code.google.com/apis/gadgets/docs/reference.html#Userprefs_Ref -->
   <UserPref name="where_i_live" display_name="Where I Live" datatype="string" default_value="" required="false" />
+<UserPref name="where_i_work" display_name="Where I Work" datatype="string" default_value="" required="false" />
   <UserPref name="subscribe_to_newsletter" display_name="Subscribe to Newsletter" datatype="bool" default_value="" required="false" />
   <UserPref name="difficulty"
        display_name="Difficulty"
@@ -67,9 +69,76 @@
 
   <!-- To begin development, remove the hello view and uncomment the home and canvas views below -->
   
- 
+  <Content type="html" view="home,canvas>
+    <![CDATA[
+      <script  type="text/javascript">
+      function init() {
+        osapi.people.getViewer().execute(function(viewerData) {
+           if (!viewerData.error) {
+              var viewerDiv = document.getElementById('current_user_id'),
+                  viewerThumbnailImg = document.getElementById('viewerThumbnailImg');
+              viewerDiv.innerHTML += viewerData.displayName;
+              viewerThumbnailImg.attributes.getNamedItem("src").nodeValue=viewerData.thumbnailUrl;
+              gadgets.window.adjustHeight();
+           };
+        });
+
+        osapi.people.getViewerFriends().execute(function(viewerFriends) {
+           if (!viewerFriends.error){
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = viewerFriends.list.length;
+           }
+        });
+
+        var workLocationSpan = document.getElementById('workLocationSpan'),
+            prefs = new gadgets.Prefs(),
+            yourWorkLocation = prefs.getString("work_location");
+            workLocationSpan.innerHTML = yourWorkLocation;
+
+      }
+
+      function postActivity(){
+        var params = {activity: {title:"Hello Jive!",
+                              body:"Posting to the stream is easy!"}
+                  };
+         osapi.activities.create(params).execute(myCallback);
+      }
+
+      function myCallback(){
+        var msg = new gadgets.MiniMessage(__MODULE_ID__);
+            msg.createDismissibleMessage("You just posted an activity!");
+            gadgets.window.adjustHeight();
+      }
+
+
+      gadgets.util.registerOnLoadHandler(init);
+      </script>
+
+      <p>Your display name is: <span id="current_user_id"></span></p>
+      <p>Your thumbnail is: <img id="viewerThumbnailImg" src=""></img></p>
+      <p>You have <span id='result'></span> friends.</p>
+      <p>You work at: <span id='workLocationSpan'></span></p>
+      <p><input type="button" value="Post Activity" onclick="postActivity(); return true;"/></p>
+
+      ]]>
+</Content>
   <Content type="html" view="home" href="home.html" preferred_height="400" />
   <Content type="html" view="canvas" href="canvas.html" />
+  <Content type="html" view="output" href="output.html" />
 
+    function postActivity(){
+
+          var params = {userId: "@viewer",
+                       groupId: "@self",
+                       activity: {title:"Hello Jive",
+                               url:"http://community.jivesoftware.com/docs/DOC-65828",
+
+                               body:"This is my activity"}
+
+                        };
+    
+           osapi.activities.create(params).execute(myCallback);
+
+          }
 
 </Module>
