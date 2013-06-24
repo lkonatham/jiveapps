@@ -21,10 +21,24 @@ Output: Eqivalent value in Celcius
 To check for current temperature follow the link below:<br>
 <A href="http://www.weather.com/weather/today/Austin+TX+78754:4:US">Weather Check</A>
 
-<form action="input.jsp">
+<!-- <form action="input.jsp">
   Current temperature:<input type="number" name="temp"><br>
    <input type="submit" value="Enter">
-</form></center>
+</form></center> -->
 
-<button type="button" id="submit-btn" disabled="true">Enter the value</button>
+<div id="temp-controls">
+    <ul>
+       <li><a href="create-temp"><span>Temp calc</span></a></li>
+                
+    </ul>
+    <div id="create-temp">
+          <h1>Temp Calc</h1>
+          <form id="create-form"></form>
+    </div>
+            
+</div>
+<label class="submit-label">Submit</label>
+<div id="add-fields">
+  <button type="button" id="submit-btn">Enter the value</button>
+</div>
 <link href="output.html">
