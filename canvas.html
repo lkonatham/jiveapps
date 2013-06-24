@@ -30,8 +30,11 @@ To check for current temperature follow the link below:<br>
           <h1>Temp Calc</h1>
 <form id="create-form">Current Temperature
            
-     <form oninput="b.value = ((a.value)-32)*5/9">
+     <form oninput="b.value = parseInt(a.value)-parseInt(c.value)*parseInt(d.value)/parseInt(e.value)">
          <input type="number" id="a" value="">
+          <input id="c" value="32">
+          <input id="d" value="5">
+          <input id="e" value="9">
              = Output:<output name="b" for="a"></output>
      </form>
 </form>
