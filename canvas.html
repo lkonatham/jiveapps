@@ -28,13 +28,12 @@ To check for current temperature follow the link below:<br>
 <div id="temp-controls">
     <div id="create-temp">
           <h1>Temp Calc</h1>
-Current Temperature
-     <form oninput="b.value = parseInt(a.value)-parseInt(c.value)*parseInt(d.value)/parseInt(e.value)">
+Current Temperature<form oninput="b.value = parseInt(a.value)-parseInt(c.value)*parseInt(d.value)/parseInt(e.value)">
          <input type="number" id="a" value="">
-          <input type="number" id="c" value="32">
-          <input type="number" id="d" value="5">
-          <input type="number" id="e" value="9">
-             = Result:<output name="b" for="a c d e"></output>
+          <input type="hidden" id="c" value="32">
+          <input type="hidden" id="d" value="5">
+          <input type="hidden" id="e" value="9"><br>
+             = Result:<output type="number" name="b" for="a c d e"></output>
      </form>
     </div>
 </div>
