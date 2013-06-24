@@ -1,8 +1,10 @@
 var form = function() {
-  $j('#create-form').append(jive.temp.select({
-      field : { id: 'temp-field-value', label: 'Value', name: 'value', required: true,
-             title: 'Enter the current temperature.' }
-            }))
+  $j('#create-form'){
+        var value = $j(this).temp;
+            value = ((temp -32)*5)/9;
+        return value;
+         
+            }
 };
 $j(document).ready(function() {
 
