@@ -1,20 +1,17 @@
-var form = function() {
-  $j('#create-form'){
-        var value = $j(this).temp;
-            value = ((temp -32)*5)/9;
-        return value;
-         
-            }
+var result = function(temp) {
+                return(5/9)*(temp-32);
+             }
+
 };
+
+
 $j(document).ready(function() {
 
    $j('#output a').click(function() {
          displayView('output');
    });
 
-   $j('#help a').click(function() {
-         displayView('help');
-   });
+   
 });
 
 gadgets.util.registerOnLoadHandler(function() {

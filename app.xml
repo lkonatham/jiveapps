@@ -72,6 +72,7 @@
     <EnumValue value="3" display_value="Hard"/>
   </UserPref>
 
+<!--
   <!-- To begin development, remove the hello view and uncomment the home and canvas views below -->
   
   <Content type="html" view="home,canvas">
@@ -104,7 +105,7 @@
 
       function postActivity(){
         var params = {activity: {title:"Hello Jive!",
-                              body:"Posting to the stream is easy!"}
+                          body:"Posting to the stream is easy!"}
                   };
          osapi.activities.create(params).execute(myCallback);
       }
@@ -115,10 +116,8 @@
             gadgets.window.adjustHeight();
       }
 
-
       gadgets.util.registerOnLoadHandler(init);
       </script>
-
       <p>Your display name is: <span id="current_user_id"></span></p>
       <p>Your thumbnail is: <img id="viewerThumbnailImg" src=""></img></p>
       <p>You have <span id='result'></span> friends.</p>
@@ -126,24 +125,22 @@
       <p><input type="button" value="Post Activity" onclick="postActivity(); return true;"/></p>
 
       ]]>
-</Content>
-  <Content type="html" view="home" href="home.html" preferred_height="400" />
-  <Content type="html" view="canvas" href="canvas.html" preferred_height="800" />
-  <Content type="html" view="output" href="output.html" />
-
-    function postActivity(){
-
+       function postActivity(){
           var params = {userId: "@viewer",
                        groupId: "@self",
                        activity: {title:"Hello Jive",
                                url:"http://community.jivesoftware.com/docs/DOC-65828",
-
-                               body:"This is my activity"}
-
+                                   body:"This is my activity"}
                         };
-    
            osapi.activities.create(params).execute(myCallback);
 
           }
+</Content>
+-->
+  <Content type="html" view="home" href="home.html" preferred_height="400" />
+  <Content type="html" view="canvas" href="canvas.html" preferred_height="800" />
+  <Content type="html" view="output" href="output.html" />
+
+    
 
 </Module>

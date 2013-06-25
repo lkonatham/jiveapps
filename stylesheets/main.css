@@ -27,6 +27,17 @@
     width: 600px;
 }
 
+#add-fields {
+    margin: 20px 0;
+}
+
+#add-fields div:first-child a.fbldr-field-up {
+    display: none;
+}
+
+#add-fields div:last-child a.fbldr-field-down {
+    display: none;
+}
 .appbutton {
     background: #EFEFEF;
     background: -moz-linear-gradient(top,white 0%,#EFEFEF 100%);
