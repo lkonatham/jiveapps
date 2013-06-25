@@ -1,4 +1,4 @@
-function apply()
+$j(document).ready(function apply()
 {
    var a = tform.myoption.value;
    if(a=="Fahrenheit")
@@ -17,6 +17,7 @@ function apply()
        var res=Math.round(tc*Math.pow(10,2))/Math.pow(10,2);
        tform.txt1.value=res+" F";
     }
+});
 $j(document).ready(function() {
 
    $j('#output a').click(function() {
