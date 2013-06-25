@@ -14,7 +14,7 @@ function apply()
        var val=tform.txt.value;
        var tc=parseInt(val);
        var tf=((9/5)*tc)+32;
-       var res=Math.round(tc*Math.pow(10,2))/Math.pow(10,2);
+       var res=Math.round(tf*Math.pow(10,2))/Math.pow(10,2);
        tform.txt1.value=res+" F";
     }
 }
