@@ -3,14 +3,13 @@
 
 <HEAD>
 <TITLE> App to calculate temperature in Centirade</TITLE>
-
 </HEAD>
 
 <BODY BGCOLOR="MistyRose">
 <script type="text/javascript">
 function apply()
 {
-  var a=tform.myoption.value;
+  var a = tform.myoption.value;
   if(a=="Fahrenheit")
   {
     var val=tform.txt.value;
@@ -45,11 +44,6 @@ Output: Eqivalent value in Celcius
 To check for current temperature follow the link below:<br>
 <A href="http://www.weather.com/weather/today/Austin+TX+78754:4:US">Weather Check</A>
 
-<!-- <form action="input.jsp">
-  Current temperature:<input type="number" name="temp"><br>
-   <input type="submit" value="Enter">
-</form></center> -->
-
 <div id="temp-controls">
     <div id="create-temp">
           <h1>Temp Calc</h1>
@@ -66,7 +60,7 @@ Current Temperature<form oninput="b.value = (parseInt(a.value)-parseInt(c.value)
 <form name="tform"> 
 <table style="border:solid green 1px">
 <tr><td>Enter the degree</td>
-<td><input type=text name="txt" size=12"></td>
+<td><input type="text" name="txt"></td>
 <td><select name="myoption">
 <option name="Faren" value="Fahrenheit">F</option>
 <option name="Cels" value="Celsius">C</option>
@@ -74,7 +68,7 @@ Current Temperature<form oninput="b.value = (parseInt(a.value)-parseInt(c.value)
 <td><input type="button" value="Calculate" onclick="apply()"></td></tr>
 <tr><td>Equal Value</td>
 <td><input type=text name="txt1" size="12" READONLY></td><td></td>
-<td align=right>&copy<a href="http://www.hscripts.com" style="color:#3D366F;text-decoration:none;cursor:pointer;font-size:13px">hscripts.com</a></td></tr>
+</tr>
 </table>
 </form>
 
