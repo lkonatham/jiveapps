@@ -6,7 +6,7 @@
 </HEAD>
 
 <BODY BGCOLOR="MistyRose">
-<!--<script type="text/javascript">
+<script type="text/javascript">
 
 function apply()
 {
@@ -24,11 +24,11 @@ function apply()
        var val=tform.txt.value;
        var tc=parseInt(val);
        var tf=((9/5)*tc)+32;
-       var res=Math.round(tc*Math.pow(10,2))/Math.pow(10,2);
+       var res=Math.round(tf*Math.pow(10,2))/Math.pow(10,2);
        tform.txt1.value=res+" F";
     }
+}
 </script>
--->
 <CENTER>
 <img src="images/weather.jpg" alt="Weather" width="250" height="250">
 <h2>Canvas View: To calculate temperature</h2>
@@ -67,11 +67,9 @@ Current Temperature<form oninput="b.value = (parseInt(a.value)-parseInt(c.value)
 </tr>
 <tr><td>Equal value</td>
 <td><input type="text" name="txt1" size="12" READONLY></td></tr>
-<tr><td><input type="button" value="Calculate" onClick="apply()"></td></tr>
+<tr><td><input type="button" id="click" value="Calculate" onClick="apply()"></td></tr>
 </table>
 </form>
-<script type="text/javascript" src="javascripts/main.js">
-</script>
 
 <label class="submit-label">Submit</label>
 <div id="add-fields">
