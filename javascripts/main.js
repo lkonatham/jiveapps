@@ -1,3 +1,41 @@
+$(document).ready(function() {
+  $.simpleWeather({
+    zipcode: '78754',
+    location: 'austin',
+    unit: 'f',
+    success: function(weather) {
+      html = '<h2>'+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+      html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
+      html += '<li class="currently">'+weather.currently+'</li>';
+      html += '<li>'+weather.tempAlt+'&deg;C</li></ul>';
+  
+      $("#weather").html(html);
+    },
+    error: function(error) {
+      $("#weather").html('<p>'+error+'</p>');
+    }
+  });
+});
+
+
+function displayData()
+{
+
+  $(document).ready(function(){
+
+    $.getJSON("http://www.weather.com/weather/today/Austin+TX+78754:4:US?city=Austin",
+
+        function(data){
+
+        $("#city").html( data.city );
+        $("#temperature").html( data.temperature );
+
+        });
+
+  });
+
+} //end displayData
+
 function apply()
 {
    var a = tform.myoption.value;

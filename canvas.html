@@ -3,33 +3,39 @@
 
 <HEAD>
 <TITLE> App to calculate temperature in Centirade</TITLE>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<!--<script type="text/javascript">
+
+$(function()
+{
+    // Method 1:
+    $.get('http://www.weather.com/weather', function(data)
+    {
+        $('#tempe').html(data);
+    });
+    
+    // Method 2:
+    $('#tempe').load('http://www.weather.com/weather');
+    
+    // Method 3:
+    $.ajax({
+      url: 'http://www.weather.com/weather/today/Austin+TX+78754:4:US?city=Austin',
+      dataType: "jsonp",
+      jsonp: "callback",
+      success: function(data)
+      {
+        $('#main').text(data);
+      }
+    });
+
+}); // eof doc ready
+
+</script>-->
 </HEAD>
 
 <BODY BGCOLOR="MistyRose">
-<!--<script type="text/javascript">
-
-function apply()
-{
-   var a = tform.myoption.value;
-   if(a=="Fahrenheit")
-   {
-      var val=tform.txt.value;
-      var tf=parseInt(val);
-      var tc=(5/9)*(tf-32);
-      var res=Math.round(tc*Math.pow(10,2))/Math.pow(10,2);
-      tform.txt1.value=res+" C";
-    }
-    else
-    {
-       var val=tform.txt.value;
-       var tc=parseInt(val);
-       var tf=((9/5)*tc)+32;
-       var res=Math.round(tf*Math.pow(10,2))/Math.pow(10,2);
-       tform.txt1.value=res+" F";
-    }
-}
-</script>
--->
+ 
 <CENTER>
 <img src="images/weather.jpg" alt="Weather" width="250" height="250">
 <h2>Canvas View: To calculate temperature</h2>
@@ -42,8 +48,33 @@ Output: Eqivalent value in Celcius
 
 <center>
 To check for current temperature follow the link below:<br>
-<iframe src="demo_iframe.htm" name="frame_t" width="300" height="200"></iframe><br>
-<A href="http://www.weather.com/weather/today/Austin+TX+78754:4:US"  target="frame_t">Weather Check</A>
+
+<!--
+<body>
+<input type="button" id="click" value="Get" onClick="displayData()">
+  <div id="tempe">
+    <table>
+       <tr> 
+         <th> City </th>
+         <th> Temperature </th>
+       </tr>
+       <tr>
+          <td id="city"></td>
+          <td id="temperature"></td>
+       </tr>
+    </table>
+  </div>
+</body>
+-->
+
+<div id="weather"></div>
+
+<script type="text/javascript" src="http://voap.weather.com/weather/oap/USTX0057?template=DRIVH&par=3000000007&unit=0&key=twciweatherwidget">
+</script>
+<br><iframe src="demo_iframe.htm" name="frame_t" width="300" height="200"></iframe><br>
+<A href="http://www.weather.com/weather/today/Austin+TX+78754:4:US"  target="frame_t">
+Weather Check</A>
+
 
 <div id="temp-controls">
     <div id="create-temp">
@@ -57,6 +88,7 @@ Current Temperature<form oninput="b.value = (parseInt(a.value)-parseInt(c.value)
      </form>
     </div>
 </div>
+
 
 <form name="tform">
 <table style="border:solid green 2px">
@@ -73,3 +105,16 @@ Current Temperature<form oninput="b.value = (parseInt(a.value)-parseInt(c.value)
 </table>
 </form>
 
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="jquery.zweatherfeed.min.js" type="text/javascript"></script>
+<div id="test"></div>
+
+<script type="text/javascript">
+$(document).ready(function () {
+  $('#test').weatherfeed(['US78754','EGXX0011','UKXX0061','CAXX0518','CHXX0049']);
+});
+</script>
+
+</center>
+</body>
